@@ -1259,7 +1259,6 @@ button {
   overflow: visible;
   text-overflow: clip;
 }
-
 @media (max-width: 720px) {
   .main {
     padding: 24px 20px 0;
