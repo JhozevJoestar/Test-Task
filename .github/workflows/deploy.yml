@@ -16,9 +16,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: test
 
     steps:
       - uses: actions/checkout@v4
@@ -27,14 +24,14 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: test/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - run: npm ci
       - run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: test/dist
+          path: dist
 
   deploy:
     runs-on: ubuntu-latest
